@@ -54,4 +54,3 @@ Créditos
 Desarrollado por: [Susan Belén Yáñez Godínez, Miriam Lizbeth Muñoz Hernández y Ricardo Raúl Riebling Romero]
 
 Fecha: Marzo 2025
-
