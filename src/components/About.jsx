@@ -1,23 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles.css'; 
 
 import videoImg from '../assets/images/video_img.jpg';
 import bg10 from '../assets/images/bg10.jpg';
 
-const about = () => {
+const About = () => {
   return (
     <div>
       <header>
         <h1>Joyería Sunaar</h1>
       </header>
-
-      <nav>
-        <Link to="/">Inicio</Link>
-        <Link to="/about">Sobre Nosotros</Link>
-        <Link to="/shop">Colecciones</Link>
-        <Link to="/contact">Contacto</Link>
-      </nav>
 
       <section className="layout_padding section padding_bottom_0">
         <div className="container">
@@ -92,4 +84,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
