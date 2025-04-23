@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles.css';
-
-import pro1 from '../assets/images/pro1.jpg';
-import pro2 from '../assets/images/pro2.jpg';
-import pro3 from '../assets/images/pro3.jpg';
-import pro31 from '../assets/images/pro31.jpg';
-import pro4 from '../assets/images/pro4.jpg';
-import pro5 from '../assets/images/pro5.jpg';
+import { ProductContext } from '../context/ProductContext';
 
 const Shop = () => {
+  const { collections, productsByCollection } = useContext(ProductContext);
+
+  const handleAddToCart = (product) => {
+    // Aquí podrías integrar tu lógica de carrito
+    console.log("Producto agregado al carrito:", product.name);
+    // ejemplo: addToCart(product); si tienes una función en contexto
+  };
+
   return (
     <div>
       <header>
@@ -25,39 +27,39 @@ const Shop = () => {
 
       <section className="layout_padding section padding_bottom_0">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="full">
-                <p className="large">
-                  Sunaar Jewelry es un destino exclusivo donde la elegancia y la autenticidad se encuentran. Nuestra tienda ofrece una cuidada selección de joyas diseñadas para resaltar la belleza de cada persona, con piezas únicas que combinan materiales de alta calidad y un diseño atemporal. En Sunaar, cada joya cuenta una historia, y estamos aquí para ayudarte a contar la tuya.
-                </p>
-              </div>
-            </div>
-          </div>
+          <p className="large">
+            Descubre nuestras colecciones exclusivas, cada una diseñada para resaltar tu estilo y personalidad.
+          </p>
         </div>
       </section>
 
       <section className="layout_padding haf_layout section">
         <div className="container">
-          <div className="row product_section">
-            {[
-              { img: pro1, title: 'Collar de perlas', price: '$100' },
-              { img: pro2, title: 'Collar de granate', price: '$100' },
-              { img: pro3, title: 'Collar de ámbar', price: '$100' },
-              { img: pro31, title: 'Collar de perlas', price: '$100' },
-              { img: pro4, title: 'Anillo de plata', price: '$100' },
-              { img: pro5, title: 'Pulsera de cuarzos', price: '$100' },
-            ].map((producto, index) => (
-              <div className="col-md-4" key={index}>
-                <div className="full product_blog margin_top_30">
-                  <img src={producto.img} alt={producto.title} />
-                  <h3>
-                    <span style={{ color: '#d0aa90' }}>{producto.price}</span> {producto.title}
-                  </h3>
-                </div>
+          {/* Recorrer las colecciones */}
+          {collections.map((collection) => (
+            <div key={collection.id} className="collection-section">
+              <h2>{collection.name}</h2>
+              <div className="row product_section">
+                {/* Recorrer los productos de la colección */}
+                {productsByCollection[collection.id]?.map((product) => (
+                  <div className="col-md-4" key={product.id}>
+                    <div className="product-card" style={{ marginBottom: '30px' }}>
+                      <img src={product.image} alt={product.name} />
+                      <h3>{product.name}</h3>
+                      <p>{product.description}</p>
+                      <span style={{ color: '#d0aa90', display: 'block', marginBottom: '10px' }}>
+                        ${product.price}
+                      </span>
+                      {/* Botón para agregar al carrito */}
+                      <button className="btn-add-cart" onClick={() => handleAddToCart(product)}>
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
