@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const NavBar = () => {
+  const { user, logout } = useContext(AuthContext);
+
   return (
-    <nav>
+    <nav style={{ position: 'relative' }}>
       <ul style={{ display: 'flex', listStyleType: 'none', padding: 0 }}>
         <li style={{ margin: '0 10px' }}>
           <Link to="/">Inicio</Link>
@@ -20,15 +23,27 @@ const NavBar = () => {
         <li style={{ margin: '0 10px' }}>
           <Link to="/contact">Contacto</Link>
         </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/login">Iniciar sesión</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/register">Registrarse</Link>
-        </li>
+        {!user && (
+          <>
+            <li style={{ margin: '0 10px' }}>
+              <Link to="/login">Iniciar sesión</Link>
+            </li>
+            <li style={{ margin: '0 10px' }}>
+              <Link to="/register">Registrarse</Link>
+            </li>
+          </>
+        )}
       </ul>
+
+      {/* Usuario y botón de cerrar sesión */}
+      {user && (
+        <div style={{ position: 'absolute', top: 10, right: 20, textAlign: 'right' }}>
+          <p style={{ margin: 0 }}>Hola, {user.email}</p>
+          <button onClick={logout} style={{ marginTop: '5px' }}>Cerrar sesión</button>
+        </div>
+      )}
     </nav>
   );
-}
+};
 
 export default NavBar;
