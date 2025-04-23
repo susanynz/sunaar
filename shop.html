@@ -1,85 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunaar Joyería</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunaar Joyería</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .add-to-cart-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #d0aa90;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-family: 'Lora', serif;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #b89275;
+    }
+
+    .product_blog {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    #cart-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #d0aa90;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      z-index: 999;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Joyería Sunaar</h1>
-    </header>
-    <!--encabezado-->
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="about.html">Sobre Nosotros</a>
-        <a href="shop.html">Colecciones</a>
-        <a href="contact.html">Contacto</a>
-    </nav>
-      <!-- end header -->
-       
-      <!-- section -->
-      <section class="layout_padding section padding_bottom_0">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-12">
-                  <div class="full">
-                     <p class="large">Sunaar Jewelry es un destino exclusivo donde la elegancia y la autenticidad se encuentran. Nuestra tienda ofrece una cuidada selección de joyas diseñadas para resaltar la belleza de cada persona, con piezas únicas que combinan materiales de alta calidad y un diseño atemporal. En Sunaar, cada joya cuenta una historia, y estamos aquí para ayudarte a contar la tuya.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- end section -->
-      <!-- section -->
-      <section class="layout_padding haf_layout section">
-         <div class="container">
-           <div class="row product_section">
-               <div class="col-md-4"> 
-                  <div class="full product_blog margin_top_30">
-                     <img src="images/pro1.jpg" alt="#" />
-                     <h3><span style="color: #d0aa90 !important;">$100</span> Collar de perlas</h3>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="full product_blog margin_top_30">
-                     <img src="images/pro2.jpg" alt="#" />
-                     <h3><span style="color: #d0aa90 !important;">$100</span> Collar de granate</h3>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="full product_blog margin_top_30">
-                     <img src="images/pro3.jpg" alt="#" />
-                     <h3><span style="color: #d0aa90 !important;">$100</span> Collar de ámbar</h3>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="full product_blog margin_top_30">
-                     <img src="images/pro31.jpg" alt="#" />
-                     <h3><span style="color: #d0aa90 !important;">$100</span> Collar de perlas</h3>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="full product_blog margin_top_30">
-                     <img src="images/pro4.jpg" alt="#" />
-                     <h3><span style="color: #d0aa90 !important;">$100</span>Anillo de plata</h3>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="full product_blog margin_top_30">
-                     <img src="images/pro5.jpg" alt="#" />
-                     <h3><span style="color: #d0aa90 !important;">$100</span>Pulsera de cuarzos</h3>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- end section -->
-      <footer class="footer">
-         <p>&copy; 2025 Sunaar Joyería. Todos los derechos reservados.</p>
-     </footer>
-   </body>
+  <header>
+    <h1>Joyería Sunaar</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="about.html">Sobre Nosotros</a>
+    <a href="shop.html">Colecciones</a>
+    <a href="contact.html">Contacto</a>
+  </nav>
+
+  <section class="layout_padding section padding_bottom_0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="full">
+            <p class="large">Sunaar Jewelry es un destino exclusivo donde la elegancia y la autenticidad se encuentran. Nuestra tienda ofrece una cuidada selección de joyas diseñadas para resaltar la belleza de cada persona, con piezas únicas que combinan materiales de alta calidad y un diseño atemporal. En Sunaar, cada joya cuenta una historia, y estamos aquí para ayudarte a contar la tuya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layout_padding haf_layout section">
+    <div class="container">
+      <div class="row product_section">
+        <!-- Producto 1 -->
+        <div class="col-md-4">
+          <div class="full product_blog margin_top_30">
+            <img src="images/pro1.jpg" alt="Collar de perlas" />
+            <h3><span style="color: #d0aa90 !important;">$100</span> Collar de perlas</h3>
+            <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+        </div>
+        <!-- Producto 2 -->
+        <div class="col-md-4">
+          <div class="full product_blog margin_top_30">
+            <img src="images/pro2.jpg" alt="Collar de granate" />
+            <h3><span style="color: #d0aa90 !important;">$100</span> Collar de granate</h3>
+            <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+        </div>
+        <!-- Producto 3 -->
+        <div class="col-md-4">
+          <div class="full product_blog margin_top_30">
+            <img src="images/pro3.jpg" alt="Collar de ámbar" />
+            <h3><span style="color: #d0aa90 !important;">$100</span> Collar de ámbar</h3>
+            <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+        </div>
+        <!-- Producto 4 -->
+        <div class="col-md-4">
+          <div class="full product_blog margin_top_30">
+            <img src="images/pro31.jpg" alt="Collar de perlas" />
+            <h3><span style="color: #d0aa90 !important;">$100</span> Collar de perlas</h3>
+            <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+        </div>
+        <!-- Producto 5 -->
+        <div class="col-md-4">
+          <div class="full product_blog margin_top_30">
+            <img src="images/pro4.jpg" alt="Anillo de plata" />
+            <h3><span style="color: #d0aa90 !important;">$100</span> Anillo de plata</h3>
+            <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+        </div>
+        <!-- Producto 6 -->
+        <div class="col-md-4">
+          <div class="full product_blog margin_top_30">
+            <img src="images/pro5.jpg" alt="Pulsera de cuarzos" />
+            <h3><span style="color: #d0aa90 !important;">$100</span> Pulsera de cuarzos</h3>
+            <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Sunaar Joyería. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Indicador de carrito -->
+  <div id="cart-notification">
+    🛒 Carrito (<span id="cart-count">0</span>)
+  </div>
+
+  <!-- Script de carrito -->
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCartCount() {
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    function addToCart(productName, price) {
+      const item = { name: productName, price: price };
+      cart.push(item);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      alert(`${productName} agregado al carrito.`);
+    }
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const productCard = button.parentElement;
+        const name = productCard.querySelector('h3').textContent.replace(/\$\d+\s/, '').trim();
+        const price = parseFloat(productCard.querySelector('span').textContent.replace('$', '').trim());
+        addToCart(name, price);
+      });
+    });
+
+    updateCartCount();
+  </script>
+</body>
 </html>
