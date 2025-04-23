@@ -1,141 +1,73 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import '../styles.css';
-
 import perlas from '../assets/images/perlas.jpg';
-import pro4 from '../assets/images/pro4.jpg';
+import granate from '../assets/images/granate.jpg';
+import minerales from '../assets/images/minerales.jpg';
+import plataTurca from '../assets/images/plata-turca.jpg';
+import ambar from '../assets/images/ambar.jpg';
 
-const Index = () => {
+const Jewellery = () => {
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
-    <div>
-      <header>
-        <h1>Joyería Sunaar</h1>
-      </header>
+    <div id="jewellery" className="jewellery_page">
 
-      <nav>
-        <Link to="/">Inicio</Link>
-        <Link to="/About">Sobre Nosotros</Link>
-        <Link to="/Shop">Colecciones</Link>
-        <Link to="/Contact">Contacto</Link>
-      </nav>
-
-      <section className="hero">
-        <h2>Descubre Nuestras Colecciones</h2>
-        <p>
-          Elegancia y lujo en cada pieza de joyería artesanal. Hechas a mano en
-          Guadalajara con materiales nobles.
-        </p>
-        <a href="#products" className="btn">Explorar Colecciones</a>
-      </section>
-
-      <section id="products" className="products">
-        <div className="product-card">
-          <img
-            src={perlas}
-            alt="Collar de perlas Sunaar Joyería"
-          />
-          <h4>Collar de Perlas Cultivadas</h4>
-          <p>Perlas blancas de 8mm con cerradura de oro 14k.</p>
-          <p className="price">$1,850 MXN</p>
-          <a href="#contact" className="btn">Consultar</a>
-        </div>
-
-        <div className="product-card">
-          <img
-            src={pro4}
-            alt="Anillo de diamantes Sunaar"
-          />
-          <h4>Anillo Solitario de Diamante</h4>
-          <p>Diamante natural de 0.5ct en montura de plata esterlina.</p>
-          <p className="price">$3,200 MXN</p>
-          <a href="#contact" className="btn">Consultar</a>
+      <section className="layout_padding section padding_bottom_0">
+        <div className="container">
+          <h2>Colecciones</h2>
+          <p className="large">
+            En Sunaar, cada colección es única, diseñada exclusivamente para quienes buscan algo distinto. 
+            Nuestros diseños reflejan autenticidad, sofisticación y un estilo único.
+          </p>
         </div>
       </section>
 
-      <section id="about" className="about">
-        <h2>Sobre Nosotros</h2>
-        <p>
-          En Sunaar Joyería fusionamos técnicas ancestrales con diseño
-          contemporáneo. Cada pieza es creada por artesanos mexicanos con
-          estándares de calidad excepcionales.
-        </p>
-      </section>
+      <section className="carousel_section">
+        <div className="container">
+          <div id="carouselColecciones" className="carousel slide" data-bs-ride="carousel">
+            <div className="carousel-indicators">
+              {[0,1,2,3,4].map((item, index) => (
+                <button key={index} type="button" data-bs-target="#carouselColecciones" data-bs-slide-to={index} className={index === 0 ? 'active' : ''}></button>
+              ))}
+            </div>
 
-      <section id="contact" className="contact">
-        <h2>Contáctanos</h2>
-        <div className="contact-info">
-          <ul>
-            <li>
-              📞 Teléfono:{' '}
-              <a href="tel:+523334488832">333 448 8832</a>
-            </li>
-            <li>
-              📧 Email:{' '}
-              <a href="mailto:contacto@sunaar.com">contacto@sunaar.com</a>
-            </li>
-            <li>📍 Ubicación: Guadalajara, México</li>
-          </ul>
-        </div>
-        <form id="contactForm">
-          <label htmlFor="name">Nombre completo</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Nombre completo"
-            required
-            autoComplete="name"
-          />
+            <div className="carousel-inner">
+              {[[perlas,'Perlas'],[granate,'Granate'],[minerales,'Minerales'],[plataTurca,'Plata Turca'],[ambar,'Ámbar']].map((item, index) => (
+                <div key={item[1]} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                  <img src={item[0]} className="d-block mx-auto" alt={`Colección ${item[1]}`} />
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>{`Colección ${item[1]}`}</h5>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            required
-            autoComplete="email"
-          />
-
-          <label htmlFor="message">Mensaje</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tu mensaje o consulta sobre productos..."
-            rows="5"
-            required
-            autoComplete="off"
-          ></textarea>
-
-          <button type="submit" className="btn">Enviar mensaje</button>
-        </form>
-        <div className="social-icons">
-          <a href="https://facebook.com/tuperfil" target="_blank" rel="noreferrer">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/124/124010.png"
-              alt="Facebook de Sunaar Joyería"
-            />
-          </a>
-          <a href="https://instagram.com/tuperfil" target="_blank" rel="noreferrer">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-              alt="Instagram de Sunaar Joyería"
-            />
-          </a>
-          <a href="https://wa.me/523334488832" target="_blank" rel="noreferrer">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png"
-              alt="WhatsApp de Sunaar Joyería"
-            />
-          </a>
+            <button className="carousel-control-prev" type="button" data-bs-target="#carouselColecciones" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon"></span>
+              <span className="visually-hidden">Anterior</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#carouselColecciones" data-bs-slide="next">
+              <span className="carousel-control-next-icon"></span>
+              <span className="visually-hidden">Siguiente</span>
+            </button>
+          </div>
         </div>
       </section>
 
-      <footer className="footer">
-        <p>&copy; 2025 Sunaar Joyería. Todos los derechos reservados.</p>
+      <footer className="footer layout_padding">
+        <div className="container">
+          <p>&copy; 2025 Sunaar Jewelry. Todos los derechos reservados.</p>
+        </div>
       </footer>
+
     </div>
   );
 };
 
-export default Index;
+export default Jewellery;

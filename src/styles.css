@@ -513,3 +513,44 @@ nav a:hover {
 .product_section .add-to-cart-btn:hover {
     background-color: #b88c6a;
 }
+
+/* Estilos para la interfaz de registro e inicio de sesión */
+.auth-container {
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #fdf7f1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .auth-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .auth-form button {
+    padding: 10px;
+    background-color: #d0aa90;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .auth-form button:hover {
+    background-color: #b28b73;
+  }
+  
+  .auth-form p {
+    text-align: center;
+    font-size: 14px;
+  }
