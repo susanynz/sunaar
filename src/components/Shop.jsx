@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import '../styles.css';
 import { ProductContext } from '../context/ProductContext';
+import { CartContext } from '../context/CartContext';
 
 const Shop = () => {
   const { collections, productsByCollection } = useContext(ProductContext);
+  const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = (product) => {
-    // Aquí podrías integrar tu lógica de carrito
-    console.log("Producto agregado al carrito:", product.name);
-    // ejemplo: addToCart(product); si tienes una función en contexto
+    addToCart(product);
   };
 
   return (

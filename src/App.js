@@ -11,6 +11,7 @@ import Register from './components/Register';
 import Cart from './components/Cart';
 import Payment from './components/Payment';
 import Confirmation from './components/Confirmation';
+import { CartProvider } from './context/CartContext'; // nuevo import
 
 import { ProductProvider } from './context/ProductContext';
 import NavBar from './components/NavBar';
@@ -24,6 +25,7 @@ function App() {
   return (
     <AuthProvider> {/* Envuelves tu aplicación con AuthProvider */}
       <ProductProvider>
+      <CartProvider>
         <Router>
           <NavBar /> {/* Agregamos el NavBar para navegación */}
           <Routes>
@@ -46,6 +48,7 @@ function App() {
             />
           </Routes>
         </Router>
+        </CartProvider>
       </ProductProvider>
     </AuthProvider>
   );
