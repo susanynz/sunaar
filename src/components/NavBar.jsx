@@ -23,6 +23,18 @@ const NavBar = () => {
         <li style={{ margin: '0 10px' }}>
           <Link to="/contact">Contacto</Link>
         </li>
+
+        {/* NUEVAS PÁGINAS */}
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/cart">Carrito</Link>
+        </li>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/payment">Pago</Link>
+        </li>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/confirmation">Confirmación</Link>
+        </li>
+
         {!user && (
           <>
             <li style={{ margin: '0 10px' }}>

@@ -1,3 +1,4 @@
+import styles from '../login.module.css';  // Importamos el módulo CSS
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from './firebase';
@@ -26,7 +27,7 @@ const Login = () => {
         setError(
           <>
             Este correo no está registrado.{' '}
-            <Link to="/register" className="text-blue-600 underline">
+            <Link to="/register" className={styles['toggle-form-link']}>
               ¿Deseas registrarte?
             </Link>
           </>
@@ -52,61 +53,54 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Iniciar sesión</h2>
-        <form onSubmit={handleLogin} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Correo electrónico"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50"
-          >
-            {loading ? 'Cargando...' : 'Iniciar sesión'}
+    <div className={styles['background-container']}>
+      <div className={styles['auth-container']}>
+        <h1>Bienvenida/o a Sunaar</h1>
+
+        <form onSubmit={handleLogin} id="authForm">
+          <div className={styles['form-group']}>
+            <label>Correo electrónico</label>
+            <input
+              type="email"
+              placeholder="ejemplo@sunaar.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className={styles['form-group']}>
+            <label>Contraseña</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" disabled={loading} className={styles.btn}>
+            {loading ? 'Cargando...' : 'Ingresar'}
           </button>
         </form>
 
-        <div className="mt-4 flex items-center justify-center">
-          <span className="text-sm text-gray-500">O</span>
+        <div className={styles['toggle-form']}>
+          ¿Primera vez?{' '}
+          <Link to="/register" className={styles['toggle-form-link']}>
+            Crea una cuenta
+          </Link>
         </div>
 
-        <button
-          onClick={handleGoogleLogin}
-          className="mt-4 w-full border py-2 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors"
-        >
-          <img
-            src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-            alt="Google"
-            className="w-5 h-5"
-          />
-          <span className="text-sm text-gray-700">Iniciar sesión con Google</span>
-        </button>
+        <div className={styles['toggle-form']} style={{ marginTop: '1rem' }}>
+          <button onClick={handleGoogleLogin} className={styles.btn}>
+            Iniciar sesión con Google
+          </button>
+        </div>
 
         {error && (
-          <p className="text-red-600 mt-4 text-center text-sm">{error}</p>
+          <p style={{ color: 'red', marginTop: '1rem', fontSize: '0.9rem' }}>{error}</p>
         )}
-
-        <p className="mt-6 text-center text-sm text-gray-600">
-          ¿No tienes cuenta?{' '}
-          <Link to="/register" className="text-blue-600 font-medium hover:underline">
-            Regístrate aquí
-          </Link>
-        </p>
       </div>
     </div>
   );

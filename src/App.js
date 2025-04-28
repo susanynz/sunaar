@@ -8,6 +8,9 @@ import Jewellery from './components/Jewellery';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Register from './components/Register';
+import Cart from './components/Cart';
+import Payment from './components/Payment';
+import Confirmation from './components/Confirmation';
 
 import { ProductProvider } from './context/ProductContext';
 import NavBar from './components/NavBar';
@@ -32,6 +35,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/index" element={<Index />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/confirmation" element={<Confirmation />} />
             
             {/* Usamos PrivateRoute para proteger la ruta privada */}
             <Route

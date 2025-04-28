@@ -1,3 +1,4 @@
+import styles from '../login.module.css'; // Importamos el mismo CSS bonito
 import React, { useState } from 'react';
 import { auth } from './firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
@@ -7,15 +8,14 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);  // Estado de carga
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
-    setLoading(true);  // Activar estado de carga
+    setLoading(true);
 
-    // Validación simple de correo
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
       setError('Por favor, ingresa un correo electrónico válido.');
@@ -36,7 +36,7 @@ const Register = () => {
       }
     }
 
-    setLoading(false);  // Desactivar estado de carga
+    setLoading(false);
   };
 
   const handleGoogleSignIn = async () => {
@@ -45,7 +45,7 @@ const Register = () => {
 
     try {
       await signInWithPopup(auth, provider);
-      navigate('/');  // Redirige al usuario a la página principal después de iniciar sesión con Google
+      navigate('/');
     } catch (err) {
       setError('Error al iniciar sesión con Google. Intenta nuevamente.');
       setLoading(false);
@@ -53,34 +53,45 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Registrarse</h2>
-      <form onSubmit={handleRegister} className="auth-form">
-        <input
-          type="email"
-          placeholder="Correo electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>  {/* Botón deshabilitado mientras carga */}
-          {loading ? 'Registrando...' : 'Registrarse'}
-        </button>
-      </form>
-      {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+    <div className={styles['background-container']}>
+      <div className={styles['auth-container']}>
+        <h1>Crea tu cuenta en Sunaar</h1>
+        
+        <form onSubmit={handleRegister}>
+          <div className={styles['form-group']}>
+            <label>Correo electrónico</label>
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-      {/* Botón para iniciar sesión con Google */}
-      <div className="google-signin-container" style={{ marginTop: '20px' }}>
-        <button onClick={handleGoogleSignIn} disabled={loading} style={{ padding: '10px', background: '#4285F4', color: 'white', border: 'none', cursor: 'pointer' }}>
-          {loading ? 'Cargando...' : 'Iniciar sesión con Google'}
-        </button>
+          <div className={styles['form-group']}>
+            <label>Contraseña</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" disabled={loading} className={styles.btn}>
+            {loading ? 'Registrando...' : 'Registrarse'}
+          </button>
+        </form>
+
+        {error && <p style={{ color: 'red', marginTop: '1rem', fontSize: '0.9rem' }}>{error}</p>}
+
+        <div className={styles['toggle-form']}>
+          <button onClick={handleGoogleSignIn} disabled={loading} className={styles.btn}>
+            {loading ? 'Cargando...' : 'Iniciar sesión con Google'}
+          </button>
+        </div>
       </div>
     </div>
   );
