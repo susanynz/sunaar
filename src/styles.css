@@ -461,3 +461,96 @@ nav a:hover {
     }
 }
 
+/* Estilo general para la sección de productos */
+.product_section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Espacio entre las fichas */
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Cada ficha ocupa un ancho definido y se adapta */
+.product_section .col-md-4 {
+    flex: 0 1 calc(33.33% - 30px); /* 3 por fila con espacio */
+    box-sizing: border-box;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Imagen de producto */
+.product_section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Título y precio */
+.product_section h3 {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    padding: 15px 10px;
+    color: #333;
+}
+
+/* Botón de agregar al carrito */
+.product_section .add-to-cart-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #d0aa90;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.product_section .add-to-cart-btn:hover {
+    background-color: #b88c6a;
+}
+
+/* Estilos para la interfaz de registro e inicio de sesión */
+.auth-container {
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #fdf7f1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .auth-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .auth-form button {
+    padding: 10px;
+    background-color: #d0aa90;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .auth-form button:hover {
+    background-color: #b28b73;
+  }
+  
+  .auth-form p {
+    text-align: center;
+    font-size: 14px;
+  }

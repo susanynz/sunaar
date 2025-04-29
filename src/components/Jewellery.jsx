@@ -1,11 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import '../styles.css';
 
-import logo from '../assets/images/logo.png';
-import telIcon from '../assets/images/i1.png';
-import mailIcon from '../assets/images/i2.png';
-import locationIcon from '../assets/images/i3.png';
 import perlas from '../assets/images/perlas.jpg';
 import granate from '../assets/images/granate.jpg';
 import minerales from '../assets/images/minerales.jpg';
@@ -23,50 +18,6 @@ const Jewellery = () => {
 
   return (
     <div id="jewellery" className="jewellery_page">
-
-      <header className="header">
-        <div className="header_top_section">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-3">
-                <div className="logo">
-                  <Link to="/"><img src={logo} alt="Logo Sunaar" /></Link>
-                </div>
-              </div>
-              <div className="col-lg-9 site_information">
-                <div className="top_section_info">
-                  <ul>
-                    <li>Contáctanos <img src={telIcon} alt="Tel" /> <a href="tel:+523334488832">3334488832</a></li>
-                    <li><img src={mailIcon} alt="Mail" /> <a href="mailto:contacto@sunaar.com">contacto@sunaar.com</a></li>
-                    <li><img src={locationIcon} alt="Location" /> Guadalajara, México</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="header_bottom_section">
-          <div className="container">
-            <nav className="navbar navbar-expand-lg">
-              <div className="container-fluid">
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                  <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                  <ul className="navbar-nav">
-                    <li className="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/about">Sobre nosotros</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/jewellery">Colecciones</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/shop">Tienda</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/contact">Contacto</Link></li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </header>
 
       <section className="layout_padding section padding_bottom_0">
         <div className="container">
