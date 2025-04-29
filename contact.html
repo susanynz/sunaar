@@ -25,49 +25,51 @@
             <div class="row">
                <div class="col-lg-12">
                   <div class="full heading_s1">
-                     <h2>Tu opinión nos importa</h2>
+                     <h2 style="text-align: center;">Tu opinión nos importa</h2>
                   </div>
                </section>
       </div>
-      <section class="layout_padding section padding_bottom_0">
+      <section class="contact_section">
          <div class="container">
            <div class="row">
-               <div class="col-md-12">
-                  <div class="contact_section margin_top_30">
-                     <div class="row">
-                        <div class="col-md-6"> 
-                            <div class="gold_con">
-                               <img src="images/gold_c.png" alt="#" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                           <div class="form_cont">
-                               <form action="index.html">
-                                  <fieldset>
-                                     <div class="field">
-                                        <input type="text" name="name" placeholder="Nombre" />
-                                     </div>
-                                     <div class="field">
-                                        <input type="email" name="email" placeholder="Email" />
-                                     </div>
-                                     <div class="field">
-                                        <input type="text" name="phone" placeholder="Teléfono" />
-                                     </div>
-                                     <div class="field">
-                                        <textarea placeholder="Mensaje" ></textarea>
-                                     </div>
-                                     <div class="field center">
-                                       <button>Enviar</button>
-                                  </fieldset>
-                               </form>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+             <div class="col-md-6">
+               <div class="gold_con">
+                 <img src="images/gold_c.png" alt="Decoración dorada" />
                </div>
-            </div>
+             </div>
+             <div class="col-md-6">
+               <div class="form_cont">
+                 <h2 class="form_title">Tu opinión nos importa</h2>
+                 <form action="index.html">
+                   <div class="field">
+                     <label for="name">Nombre</label>
+                     <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                   </div>
+       
+                   <div class="field">
+                     <label for="email">Email</label>
+                     <input type="email" id="email" name="email" placeholder="Email" required>
+                   </div>
+       
+                   <div class="field">
+                     <label for="phone">Teléfono</label>
+                     <input type="text" id="phone" name="phone" placeholder="Teléfono">
+                   </div>
+       
+                   <div class="field">
+                     <label for="message">Mensaje</label>
+                     <textarea id="message" name="message" placeholder="Escribe tu mensaje..." required></textarea>
+                   </div>
+       
+                   <div class="field center">
+                     <button type="submit">Enviar</button>
+                   </div>
+                 </form>
+               </div>
+             </div>
+           </div>
          </div>
-      </section>
+       </section>
       <!-- end section -->
       <footer class="footer">
          <p>&copy; 2025 Sunaar Joyería. Todos los derechos reservados.</p>

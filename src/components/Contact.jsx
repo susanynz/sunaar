@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div>
       <header>
-        <h1>Joyería Sunaar</h1>
+        <h1>Escríbenos</h1>
       </header>
 
       <section className="layout_padding section padding_bottom_0">

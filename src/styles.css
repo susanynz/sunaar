@@ -12,7 +12,6 @@ body {
     100% { opacity: 1; }
 }
 header {
-    background-color: #D4B996;
     padding: 20px;
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -66,41 +65,7 @@ nav a:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.products {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
-    gap: 20px;
-}
-.product-card {
-    background: white;
-    padding: 20px;
-    width: 280px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-.product-card:hover {
-    transform: scale(1.03);
-}
-.product-card img {
-    width: 100%;
-    border-radius: 10px;
-    height: 250px;
-    object-fit: cover;
-}
-.product-card h4 {
-    margin: 15px 0 5px;
-    font-family: 'Playfair Display', serif;
-}
-.price {
-    font-weight: bold;
-    color: #B68D40;
-    font-size: 1.1em;
-    margin: 10px 0;
-}
+
 .about, .contact {
     padding: 40px;
     text-align: center;
@@ -314,6 +279,7 @@ nav a:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
+    text-align: center;
 }
 
 .field {
@@ -463,9 +429,9 @@ nav a:hover {
 
 /* Estilo general para la sección de productos */
 .product_section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px; /* Espacio entre las fichas */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
     justify-content: center;
     margin-top: 30px;
 }
@@ -514,6 +480,46 @@ nav a:hover {
     background-color: #b88c6a;
 }
 
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+.product-card {
+    background: white;
+    padding: 20px;
+    min-height: 500px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.product-card:hover {
+    transform: scale(1.03);
+}
+.product-card img {
+    width: 100%;
+    height: 200px; /* <-- controlamos altura */
+    object-fit: contain; /* <-- no recortamos, sino que se ajusten */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.product-card h4 {
+    margin: 15px 0 5px;
+    font-family: 'Playfair Display', serif;
+}
+.price {
+    font-weight: bold;
+    color: #B68D40;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
 /* Estilos para la interfaz de registro e inicio de sesión */
 .auth-container {
     max-width: 400px;
@@ -554,3 +560,20 @@ nav a:hover {
     text-align: center;
     font-size: 14px;
   }
+
+
+  .full {
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  
+  .heading_s1 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  
+  .heading_s1 h2 {
+    margin: 0px;
+    padding: 0px;
+  }
+  

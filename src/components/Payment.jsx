@@ -16,7 +16,7 @@ const Payment = () => {
   return (
     <div className={styles.contact_section}>
       <div className={styles.form_cont}>
-        <h1>Datos de Pago</h1>
+      <h1 style={{ textAlign: 'center', fontSize: '2.5rem' }}>Datos de Pago</h1>
 
         <form id="contactForm" onSubmit={handlePaymentSubmit}>
           <div className={styles.field}>

@@ -1,60 +1,83 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import logo from '../assets/images/sunaar logo blanco.png';
+import cartIcon from '../assets/images/CARRITO.png';     
+import userIcon from '../assets/images/INICIO DE SESION.png';  
 
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <nav style={{ position: 'relative' }}>
-      <ul style={{ display: 'flex', listStyleType: 'none', padding: 0 }}>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/">Inicio</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/about">Sobre Nosotros</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/shop">Tienda</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/jewellery">Joyería</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/contact">Contacto</Link>
-        </li>
-
-        {/* NUEVAS PÁGINAS */}
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/cart">Carrito</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/payment">Pago</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/confirmation">Confirmación</Link>
-        </li>
-
-        {!user && (
-          <>
-            <li style={{ margin: '0 10px' }}>
-              <Link to="/login">Iniciar sesión</Link>
-            </li>
-            <li style={{ margin: '0 10px' }}>
-              <Link to="/register">Registrarse</Link>
-            </li>
-          </>
+    <div style={{ backgroundColor: '#B68D40', paddingBottom: '10px', position: 'relative' }}>
+      
+      {/* Íconos esquina superior derecha */}
+      <div style={{
+        position: 'absolute',
+        top: '10px',
+        right: '20px',
+        display: 'flex',
+        gap: '12px',
+        alignItems: 'center'
+      }}>
+        <Link to="/cart">
+          <img src={cartIcon} alt="Carrito" style={{ height: '20px', width: '20px' }} />
+        </Link>
+        {!user ? (
+          <Link to="/login">
+            <img src={userIcon} alt="Usuario" style={{ height: '20px', width: '20px' }} />
+          </Link>
+        ) : (
+          <button 
+            onClick={logout}
+            style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0
+            }}
+          >
+            <img src={userIcon} alt="Cerrar sesión" style={{ height: '20px', width: '20px' }} />
+          </button>
         )}
-      </ul>
+      </div>
 
-      {/* Usuario y botón de cerrar sesión */}
-      {user && (
-        <div style={{ position: 'absolute', top: 10, right: 20, textAlign: 'right' }}>
-          <p style={{ margin: 0 }}>Hola, {user.email}</p>
-          <button onClick={logout} style={{ marginTop: '5px' }}>Cerrar sesión</button>
-        </div>
-      )}
-    </nav>
+      {/* LOGO hasta arriba y centrado */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '10px' }}>
+        <Link to="/">
+          <img src={logo} alt="Sunaar Logo" style={{ height: '80px' }} />
+        </Link>
+      </div>
+
+      {/* Menú debajo del logo */}
+      <ul style={{
+        display: 'flex',
+        listStyleType: 'none',
+        justifyContent: 'center',
+        padding: 0,
+        margin: 0,
+        flexWrap: 'wrap'
+      }}>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Inicio</Link>
+        </li>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>Sobre Nosotros</Link>
+        </li>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/shop" style={{ color: 'white', textDecoration: 'none' }}>Tienda</Link>
+        </li>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/contact" style={{ color: 'white', textDecoration: 'none' }}>Contacto</Link>
+        </li>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/payment" style={{ color: 'white', textDecoration: 'none' }}>Pago</Link>
+        </li>
+        <li style={{ margin: '0 10px' }}>
+          <Link to="/confirmation" style={{ color: 'white', textDecoration: 'none' }}>Confirmación</Link>
+        </li>
+      </ul>
+    </div>
   );
 };
 

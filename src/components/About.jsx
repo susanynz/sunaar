@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div>
       <header>
-        <h1>Joyería Sunaar</h1>
+        <h1>Sobre nosotros</h1>
       </header>
 
       <section className="layout_padding section padding_bottom_0">
@@ -16,7 +16,7 @@ const About = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="full heading_s1">
-                <h2>Sunaar</h2>
+
               </div>
               <div className="full">
                 <p className="large">
