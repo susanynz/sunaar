@@ -13,7 +13,20 @@ const Confirmation = () => {
   };
 
   const handleProceedToPayment = () => {
-    navigate('/payment'); // redirige a la página de pago
+    navigate('/payment');
+  };
+
+  const buttonStyle = {
+    backgroundColor: '#b88c6a',
+    color: 'white',
+    padding: '10px 30px',
+    border: 'none',
+    borderRadius: '20px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: '500',
+    fontFamily: 'Playfair Display, serif',
+    transition: 'all 0.3s ease'
   };
 
   if (cartItems.length === 0) {
@@ -26,11 +39,23 @@ const Confirmation = () => {
 
   return (
     <div style={{ padding: '50px' }}>
-      <h1 style={{ textAlign: 'center' }}>Confirmación de Compra</h1>
+      <h1 className="titulo-sunaar text-center">Confirmación de Compra</h1>
 
       <div style={{ marginBottom: '30px' }}>
         {cartItems.map((item, index) => (
-          <div key={index} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px', alignItems: 'center', padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
+          <div
+            key={index}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: '15px',
+              alignItems: 'center',
+              padding: '10px',
+              border: '1px solid #e0d8cb',
+              borderRadius: '8px'
+            }}
+            className="texto-sunaar"
+          >
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
               <img src={item.image} alt={item.name} style={{ width: '80px', borderRadius: '8px' }} />
               <div>
@@ -43,24 +68,18 @@ const Confirmation = () => {
         ))}
       </div>
 
-      <h2 style={{ textAlign: 'right' }}>Total a pagar: ${totalPrice.toFixed(2)}</h2>
+      <h2 className="texto-sunaar text-end">Total a pagar: ${totalPrice.toFixed(2)}</h2>
 
       {!confirmed ? (
         <div style={{ textAlign: 'center', marginTop: '30px' }}>
-          <button
-            onClick={handleConfirm}
-            style={{ backgroundColor: '#f0ad4e', padding: '10px 30px', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '18px' }}
-          >
-            ¿Seguro que deseas comprar estos artículos?
+          <button onClick={handleConfirm} style={buttonStyle}>
+            Deseo continuar con la compra
           </button>
         </div>
       ) : (
         <div style={{ textAlign: 'center', marginTop: '30px' }}>
           <h3 style={{ marginBottom: '20px' }}>¡Confirmado! Ahora puedes proceder al pago.</h3>
-          <button
-            onClick={handleProceedToPayment}
-            style={{ backgroundColor: '#5cb85c', padding: '10px 30px', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '18px' }}
-          >
+          <button onClick={handleProceedToPayment} style={buttonStyle}>
             Proceder a Pago
           </button>
         </div>
@@ -69,4 +88,4 @@ const Confirmation = () => {
   );
 };
 
-export default Confirmation;
+export default Confirmation;56

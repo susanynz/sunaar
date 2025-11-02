@@ -70,12 +70,7 @@ const NavBar = () => {
         <li style={{ margin: '0 10px' }}>
           <Link to="/contact" style={{ color: 'white', textDecoration: 'none' }}>Contacto</Link>
         </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/payment" style={{ color: 'white', textDecoration: 'none' }}>Pago</Link>
-        </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/confirmation" style={{ color: 'white', textDecoration: 'none' }}>Confirmación</Link>
-        </li>
+      
       </ul>
     </div>
   );

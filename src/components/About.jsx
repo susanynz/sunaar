@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles.css'; 
+import '../styles.css';
 
 import videoImg from '../assets/images/video_img.jpg';
 import bg10 from '../assets/images/bg10.jpg';
@@ -7,78 +7,62 @@ import bg10 from '../assets/images/bg10.jpg';
 const About = () => {
   return (
     <div>
-      <header>
-        <h1>Sobre nosotros</h1>
+      {/* Header sin margen extra */}
+      <header className="text-center" style={{ marginBottom: '0.5rem', paddingTop: '1rem' }}>
+        <h1 style={{ marginBottom: 0 }}>Sobre nosotros</h1>
       </header>
 
-      <section className="layout_padding section padding_bottom_0">
+      {/* Sección principal de descripción */}
+      <section style={{ paddingTop: '0.5rem', paddingBottom: '3rem' }}>
         <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="full heading_s1">
-
-              </div>
-              <div className="full">
-                <p className="large">
-                  Somos una marca de joyería dedicada a crear piezas únicas que combinan tradición,
-                  diseño excepcional y materiales de alta calidad. Con un enfoque en la autenticidad y la
-                  elegancia atemporal, Sunaar busca brindar joyas que cuenten historias y resalten la belleza
-                  natural de quienes las llevan.
-                </p>
-              </div>
+          <div className="row justify-content-center text-center">
+            <div className="col-lg-8 mb-4">
+              <p className="lead" style={{ marginTop: 0 }}>
+                Somos una marca de joyería dedicada a crear piezas únicas que combinan tradición,
+                diseño excepcional y materiales de alta calidad. Con un enfoque en la autenticidad y la
+                elegancia atemporal, Sunaar busca brindar joyas que cuenten historias y resalten la belleza
+                natural de quienes las llevan.
+              </p>
             </div>
-            <div className="col-md-12 text_align_center">
-              <img src={videoImg} alt="Sunaar" />
+            <div className="col-lg-8">
+              <img src={videoImg} alt="Sunaar" className="img-fluid rounded" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="layout_padding section padding_bottom_0">
+      {/* Sección Lujo accesible */}
+      <section className="py-5 bg-light">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="full heading_s1">
-                <h2>Lujo accesible</h2>
-              </div>
-              <div className="full">
-                <p className="large">
-                  Sunaar redefine el lujo, ofreciendo joyas excepcionales diseñadas con materiales de alta calidad
-                  y un estilo atemporal. Creemos que el lujo debe estar al alcance de todos, por eso creamos
-                  piezas únicas que combinan sofisticación y elegancia sin comprometer tu presupuesto.
-                </p>
-              </div>
+          <div className="row justify-content-center text-center">
+            <div className="col-lg-8 mb-4">
+              <h2 className="mb-3">Lujo accesible</h2>
+              <p className="lead">
+                Sunaar redefine el lujo, ofreciendo joyas excepcionales diseñadas con materiales de alta calidad
+                y un estilo atemporal. Creemos que el lujo debe estar al alcance de todos, por eso creamos
+                piezas únicas que combinan sofisticación y elegancia sin comprometer tu presupuesto.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="layout_padding haf_layout section">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-11">
-              <div className="container">
-                <div className="col-md-8">
-                  <div className="full banner_section">
-                    <h3>
-                      Colecciones <span style={{ color: '#937659' }}>únicas</span>
-                    </h3>
-                    <p>
-                      En Sunaar, cada colección es única, diseñada exclusivamente para quienes buscan algo distinto...
-                    </p>
-                  </div>
-                  <div className="text_align_center">
-                    <img className="img-about" src={bg10} alt="Joyas Sunaar" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Sección Colecciones únicas */}
+      <section className="py-5">
+        <div className="container text-center">
+          <h3 className="mb-3">
+            Colecciones <span style={{ color: '#937659' }}>únicas</span>
+          </h3>
+          <p className="mb-4">
+            En Sunaar, cada colección es única, diseñada exclusivamente para quienes buscan algo distinto...
+          </p>
+          <img src={bg10} alt="Joyas Sunaar" className="img-fluid rounded" />
         </div>
       </section>
 
-      <footer className="footer">
-        <p>&copy; 2025 Sunaar Joyería. Todos los derechos reservados.</p>
+      {/* Footer */}
+      <footer className="footer text-center py-4 bg-dark text-white">
+        <p className="mb-0">&copy; 2025 Sunaar Joyería. Todos los derechos reservados.</p>
       </footer>
     </div>
   );

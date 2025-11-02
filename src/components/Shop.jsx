@@ -54,29 +54,41 @@ const Shop = () => {
         </div>
       </section>
 
+           {/* Productos */}
       {/* Productos */}
-      <section className="layout_padding haf_layout section">
+      <section className="py-5">
         <div className="container">
-          {/* Recorrer las colecciones */}
           {collections.map((collection) => (
             (selectedCategory === 'Todas' || collection.name === selectedCategory) && (
-              <div key={collection.id} className="collection-section">
-                <h2>{collection.name}</h2>
-                <div className="row product_section">
-                  {/* Recorrer los productos de la colección */}
+              <div key={collection.id} className="mb-5">
+                <h2 className="titulo-sunaar text-center mb-4">{collection.name}</h2>
+                <div className="row justify-content-center">
                   {productsByCollection[collection.id]?.map((product) => (
-                    <div className="col-md-4" key={product.id}>
-                      <div className="product-card" style={{ marginBottom: '30px' }}>
-                        <img src={product.image} alt={product.name} />
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
-                        <span style={{ color: '#d0aa90', display: 'block', marginBottom: '10px' }}>
-                          ${product.price}
-                        </span>
-                        {/* Botón para agregar al carrito */}
-                        <button className="btn-add-cart" onClick={() => handleAddToCart(product)}>
-                          Agregar al carrito
-                        </button>
+                    <div className="col-md-6 col-lg-4 mb-4" key={product.id}>
+                      <div className="product-card shadow-sm h-100 d-flex flex-column justify-content-between">
+                        <img src={product.image} alt={product.name} className="product-image mb-3" />
+                        <div className="product-info">
+                          <h3 className="product-name">{product.name}</h3>
+                          <p className="product-description">{product.description}</p>
+                          <span className="product-price">${product.price}</span>
+                        </div>
+                        <div className="text-center">
+                          <button
+                            onClick={() => handleAddToCart(product)}
+                            style={{
+                              margin: '10px 0 0 0',
+                              padding: '10px 20px',
+                              backgroundColor: '#B68D40',
+                              color: 'white',
+                              border: 'none',
+                              borderRadius: '20px',
+                              cursor: 'pointer',
+                              fontSize: '16px',
+                            }}
+                          >
+                            Agregar al carrito
+                          </button>
+                        </div>
                       </div>
                     </div>
                   ))}
