@@ -52,7 +52,7 @@ const Index = () => {
 
       <footer className="footer layout_padding">
         <Container>
-          <p>&copy; 2025 Sunaar Jewelry. Todos los derechos reservados.</p>
+          <p>&copy; 2025 Sunaar Jewelry. Todos los derechos reservados. Guadalajara, Jalisco</p>
         </Container>
       </footer>
     </div>

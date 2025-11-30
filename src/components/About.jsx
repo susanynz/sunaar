@@ -36,7 +36,7 @@ const About = () => {
         <div className="container">
           <div className="row justify-content-center text-center">
             <div className="col-lg-8 mb-4">
-              <h2 className="mb-3">Lujo accesible</h2>
+              <h2 className="mb-3">Sobre nosotros</h2>
               <p className="lead">
                 Sunaar redefine el lujo, ofreciendo joyas excepcionales diseñadas con materiales de alta calidad
                 y un estilo atemporal. Creemos que el lujo debe estar al alcance de todos, por eso creamos
@@ -51,10 +51,11 @@ const About = () => {
       <section className="py-5">
         <div className="container text-center">
           <h3 className="mb-3">
-            Colecciones <span style={{ color: '#937659' }}>únicas</span>
+            Misión, visión y <span style={{ color: '#937659' }}>valores</span>
           </h3>
           <p className="mb-4">
-            En Sunaar, cada colección es única, diseñada exclusivamente para quienes buscan algo distinto...
+            En Sunaar, cada colección es única, diseñada exclusivamente para quienes buscan algo distinto, buscamos crear piezas artesanales auténticas y de calidad, presentadas en una plataforma web clara y confiable que facilite la experiencia del cliente. 
+            Aspiramos a consolidarnos como una marca  reconocida por su diseño y cercanía. Nuestros valores —transparencia, confianza, artesanía y sencillez— guían tanto nuestro trabajo como la forma en que nos relacionamos con quienes eligen nuestras joyas.
           </p>
           <img src={bg10} alt="Joyas Sunaar" className="img-fluid rounded" />
         </div>
